@@ -1,18 +1,16 @@
-# docker-pivx-wallet
+# docker-bltg-wallet
 
-get the latest pivx blockchain snapshot here
-
-http://178.254.23.111/~pub/PIVX/Daily-Snapshots-Html/PIVX-Daily-Snapshots.html
+get the latest bltg blockchain snapshot here: TBD
 
 ```
 version: '3'
 services:
   wallet:
-    image: matzeihn/pivx:latest
+    image: cpass78/bltg:latest
     deploy:
       replicas: 1    
     ports:
-      - "51472:51472"
+      - "17127:17127"
     volumes: 
-      - /opt/pivx/data/:/home/pivx/.pivx/
+      - /opt/bltg/data/:/home/bltg/.bltg/
 ```
