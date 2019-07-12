@@ -1,34 +1,34 @@
 FROM debian:stretch-slim
 
-ENV PIVX_VERSION=3.3.0
-ENV PIVX_USER=pivx
-ENV PIVX_URL=https://github.com/PIVX-Project/PIVX/releases/download/v3.3.0/pivx-3.3.0-x86_64-linux-gnu.tar.gz
-ENV PIVX_CONF=/home/$PIVX_USER/.pivx/pivx.conf
+ENV BLTG_VERSION=3.0.0
+ENV BLTG_USER=bltg
+ENV BLTG_URL=https://github.com/Block-Logic-Technology-Group/bltg/archive/v2.0.0.0.tar.gz
+ENV BLTG_CONF=/home/$BLTG_USER/.bltg/bltg.conf
 
 RUN apt-get -qq update && \
 apt-get install -yq wget ca-certificates pwgen && \
 rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
-wget $PIVX_URL -O /tmp/pivx.tar.gz && \
+wget $BLTG_URL -O /tmp/v2.0.0.0.tar.gz && \
 mkdir -p /opt && \
 cd /opt && \
-tar xvzf /tmp/pivx.tar.gz && \
-rm /tmp/pivx.tar.gz && \
-ln -sf pivx-$PIVX_VERSION pivx && \
-ln -sf /opt/pivx/bin/pivxd /usr/local/bin/pivxd && \
-ln -sf /opt/pivx/bin/pivx-cli /usr/local/bin/pivx-cli && \
-ln -sf /opt/pivx/bin/pivx-tx /usr/local/bin/pivx-tx && \
-adduser --uid 1000 --system ${PIVX_USER} && \
-mkdir -p /home/${PIVX_USER}/.pivx/ && \
-chown -R ${PIVX_USER} /home/${PIVX_USER} && \
-echo "success: $PIVX_CONF"
+tar xvzf /tmp/v2.0.0.0.tar.gz && \
+rm /tmp/v2.0.0.0.tar.gz && \
+ln -sf bltg-$BLTG_VERSION bltg && \
+ln -sf /opt/bltg/bin/bltgd /usr/local/bin/bltgd && \
+ln -sf /opt/bltg/bin/bltg-cli /usr/local/bin/bltg-cli && \
+ln -sf /opt/bltg/bin/bltg-tx /usr/local/bin/bltg-tx && \
+adduser --uid 1000 --system ${BLTG_USER} && \
+mkdir -p /home/${BLTG_USER}/.bltg/ && \
+chown -R ${BLTG_USER} /home/${BLTG_USER} && \
+echo "success: $BLTG_CONF"
 
-USER pivx
-RUN echo "rpcuser=pivx" > ${PIVX_CONF} && \
-        echo "rpcpassword=`pwgen 32 1`" >> ${PIVX_CONF} && \
+USER bltg
+RUN echo "rpcuser=bltg" > ${BLTG_CONF} && \
+        echo "rpcpassword=`pwgen 32 1`" >> ${BLTG_CONF} && \
         echo "Success"
 
-EXPOSE 51472
-VOLUME ["/home/pivx/.pivx"]
-WORKDIR /home/pivx
+EXPOSE 17127
+VOLUME ["/home/bltg/.bltg"]
+WORKDIR /home/bltg
 
-ENTRYPOINT ["/usr/local/bin/pivxd"]
+ENTRYPOINT ["/usr/local/bin/bltgd"]
