@@ -1,10 +1,10 @@
 version: '3'
 services:
   wallet:
-    image: matzeihn/pivx:latest
+    image: cpass78/bltg:latest
     deploy:
       replicas: 1    
     ports:
-      - "51472:51472"
+      - "17127:17127"
     volumes: 
-      - /opt/pivx/data/:/home/pivx/.pivx/
+      - /opt/bltg/data/:/home/bltg/.bltg/
