@@ -11,9 +11,8 @@ rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
 wget $BLTG_URL -O /tmp/ubuntu16.tar && \
 mkdir -p /opt && \
 cd /opt && \
-tar xvzf /tmp/ubuntu16.tar && \
+tar -xvf /tmp/ubuntu16.tar && \
 rm /tmp/ubuntu16.tar && \
-ln -sf bltg-$BLTG_VERSION bltg && \
 ln -sf /opt/bltg/bin/bltgd /usr/local/bin/bltgd && \
 ln -sf /opt/bltg/bin/bltg-cli /usr/local/bin/bltg-cli && \
 ln -sf /opt/bltg/bin/bltg-tx /usr/local/bin/bltg-tx && \
