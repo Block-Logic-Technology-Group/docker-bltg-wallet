@@ -2,7 +2,7 @@ FROM debian:stretch-slim
 
 ENV BLTG_VERSION=3.0.0
 ENV BLTG_USER=bltg
-ENV BLTG_URL=https://github.com/Block-Logic-Technology-Group/bltg/releases/download/v2.0.0.0/ubuntu16.tar
+ENV BLTG_URL=https://www.dropbox.com/s/m0flm1tfiyzpcvo/bltg-3.0.0-x86_64-linux-gnu.tar.gz?dl=0
 ENV BLTG_CONF=/home/$BLTG_USER/.bltg/bltg.conf
 
 RUN apt-get -qq update && \
@@ -11,8 +11,9 @@ rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
 wget $BLTG_URL -O /tmp/ubuntu16.tar && \
 mkdir -p /opt && \
 cd /opt && \
-tar -xvf /tmp/ubuntu16.tar && \
-rm /tmp/ubuntu16.tar && \
+tar xvzf /tmp/bltg.tar.gz && \
+rm /tmp/bltg.tar.gz && \
+ln -sf bltg-$BLTG_VERSION bltg && \
 ln -sf /opt/bltg/bin/bltgd /usr/local/bin/bltgd && \
 ln -sf /opt/bltg/bin/bltg-cli /usr/local/bin/bltg-cli && \
 ln -sf /opt/bltg/bin/bltg-tx /usr/local/bin/bltg-tx && \
