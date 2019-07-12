@@ -2,17 +2,17 @@ FROM debian:stretch-slim
 
 ENV BLTG_VERSION=3.0.0
 ENV BLTG_USER=bltg
-ENV BLTG_URL=https://github.com/Block-Logic-Technology-Group/bltg/archive/v2.0.0.0.tar.gz
+ENV BLTG_URL=https://github.com/Block-Logic-Technology-Group/bltg/releases/download/v2.0.0.0/ubuntu16.tar
 ENV BLTG_CONF=/home/$BLTG_USER/.bltg/bltg.conf
 
 RUN apt-get -qq update && \
 apt-get install -yq wget ca-certificates pwgen && \
 rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
-wget $BLTG_URL -O /tmp/v2.0.0.0.tar.gz && \
+wget $BLTG_URL -O /tmp/ubuntu16.tar && \
 mkdir -p /opt && \
 cd /opt && \
-tar xvzf /tmp/v2.0.0.0.tar.gz && \
-rm /tmp/v2.0.0.0.tar.gz && \
+tar xvzf /tmp/ubuntu16.tar && \
+rm /tmp/ubuntu16.tar && \
 ln -sf bltg-$BLTG_VERSION bltg && \
 ln -sf /opt/bltg/bin/bltgd /usr/local/bin/bltgd && \
 ln -sf /opt/bltg/bin/bltg-cli /usr/local/bin/bltg-cli && \
