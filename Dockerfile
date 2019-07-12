@@ -8,7 +8,7 @@ ENV BLTG_CONF=/home/$BLTG_USER/.bltg/bltg.conf
 RUN apt-get -qq update && \
 apt-get install -yq wget ca-certificates pwgen && \
 rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
-wget $BLTG_URL -O /tmp/ubuntu16.tar && \
+wget $BLTG_URL -O /tmp/bltg.tar.gz && \
 mkdir -p /opt && \
 cd /opt && \
 tar xvzf /tmp/bltg.tar.gz && \
