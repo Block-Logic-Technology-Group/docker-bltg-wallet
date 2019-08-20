@@ -2,7 +2,7 @@ FROM debian:stretch-slim
 
 ENV BLTG_VERSION=3.0.0
 ENV BLTG_USER=bltg
-ENV BLTG_URL=https://www.dropbox.com/s/m0flm1tfiyzpcvo/bltg-3.0.0-x86_64-linux-gnu.tar.gz?dl=0
+ENV BLTG_URL=https://github.com/Block-Logic-Technology-Group/bltg/releases/download/v3.0.0/bltg-3.0.0-x86_64-linux-gnu.tar.gz
 ENV BLTG_CONF=/home/$BLTG_USER/.bltg/bltg.conf
 
 RUN apt-get -qq update && \
