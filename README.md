@@ -6,7 +6,7 @@ get the latest bltg blockchain snapshot here: TBD
 version: '3'
 services:
   wallet:
-    image: cpass78/bltg:latest
+    image: cpass78/bltg-wallet:latest
     deploy:
       replicas: 1    
     ports:
