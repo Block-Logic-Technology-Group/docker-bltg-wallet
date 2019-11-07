@@ -1,6 +1,6 @@
 # docker-bltg-wallet
 
-get the latest bltg blockchain snapshot here: TBD
+get the latest bltg blockchain snapshot[here](https://github.com/Block-Logic-Technology-Group/Snapshots)
 
 ```
 version: '3'
